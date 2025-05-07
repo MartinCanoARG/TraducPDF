@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de PDFs</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">📚 Historial de PDFs procesados</h1>
+
+        {% if pdfs|length == 0 %}
+            <p>No se han procesado archivos aún.</p>
+        {% else %}
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #f0f0f0;">
+                        <th style="padding: 10px;">📄 Archivo</th>
+                        <th style="padding: 10px;">🕒 Fecha</th>
+                        <th style="padding: 10px;">🌐 Traducido</th>
+                        <th style="padding: 10px;">🔍 Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pdf in pdfs %}
+                        <tr>
+                            <td style="padding: 10px;">{{ pdf.filename }}</td>
+                            <td style="padding: 10px;">{{ pdf.timestamp }}</td>
+                            <td style="padding: 10px;">{{ "Sí" if pdf.translated else "No" }}</td>
+                            <td style="padding: 10px;">
+                                <a class="small-button" href="/pdfs/{{ pdf.id }}">👁️ Ver</a>
+                                <a class="small-button" href="/download/{{ pdf.id }}">⬇️ Descargar</a>
+                                <form action="/delete/{{ pdf.id }}" method="post" style="display:inline;">
+                                    <button class="small-button red" type="submit">🗑️ Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        <br>
+        <a href="/" class="small-button">🏠 Volver al Menú</a>
+    </div>
+</body>
+</html>

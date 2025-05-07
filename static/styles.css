@@ -1,0 +1,275 @@
+/* ------------------ GENERAL ------------------ */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+/* ------------------ HEADER & NAV ------------------ */
+header {
+    background-color: #1a73e8;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------ CONTAINERS ------------------ */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.main {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.small-container {
+    max-width: 400px;
+}
+
+.profile-info {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.profile-info p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* ------------------ FORMS ------------------ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="file"],
+select,
+button,
+.input-field {
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.input-field {
+    width: 90%;
+    margin: 8px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input:focus, .input-field:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+}
+
+button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1558c1;
+}
+
+/* ------------------ CARDS ------------------ */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 15px;
+}
+
+.card {
+    background-color: #007bff;
+    color: white;
+    width: 200px;
+    height: 200px;
+    text-decoration: none;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background-color: #0056b3;
+}
+
+.card-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #f0f0f0;
+    margin: 5px 0;
+}
+
+/* ------------------ BUTTONS ------------------ */
+.small-button {
+    background-color: white;
+    color: #007bff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.small-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.small-button.red {
+    color: red;
+}
+
+.small-button.red:hover {
+    background-color: red;
+    color: white;
+}
+
+/* ------------------ CHECKBOX ------------------ */
+.checkbox-container {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #007bff;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* ------------------ MESSAGES ------------------ */
+.message {
+    margin-top: 1rem;
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    margin-top: 1rem;
+    color: red;
+    font-weight: bold;
+}
+
+#loading-message {
+    text-align: center;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+.page-title {
+    margin-bottom: 40px;
+}

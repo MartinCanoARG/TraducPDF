@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>👤 Perfil de Usuario</h1>
+
+        <div class="profile-info">
+            <p><strong>Nombre de usuario:</strong> {{ username }}</p>
+            <p><strong>PDFs procesados:</strong> {{ total_pdfs }}</p>
+        </div>
+
+        <br>
+        <a href="/" class="small-button">🏠 Volver al menú principal</a>
+        <a href="/change-password" class="small-button">🔑 Cambiar contraseña</a>
+        <a href="/logout" class="small-button red">🚪 Cerrar sesión</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre esta app - TraducPDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Sobre TraducPDF</h1>
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/history">Historial</a>
+            <a href="/about">Sobre esta app</a>
+        </nav>
+    </header>
+
+    <main>
+        <p><strong>TraducPDF</strong> es una aplicación creada por <strong>Martin Cano</strong> como proyecto final para el curso <em>CS50x 2025</em>.</p>
+        <p>Permite subir archivos PDF, traducir su contenido automáticamente a otro idioma y descargar la versión traducida en segundos.</p>
+        <p>La aplicación está pensada para ayudar a estudiantes universitarios en carreras como medicina o derecho a comprender textos académicos en otros idiomas.</p>
+        <p>Este proyecto utiliza Python, Flask, pdfplumber, reportlab y la API de OpenAI.</p>
+        <p>¡Gracias por visitar!</p>
+    </main>
+</body>
+</html>

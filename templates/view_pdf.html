@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalle del PDF</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Detalle del PDF procesado</h1>
+
+        <div class="profile-info">
+            <p><strong>Nombre del archivo:</strong> {{ pdf.filename }}</p>
+            <p><strong>Fecha de procesamiento:</strong> {{ pdf.timestamp }}</p>
+            <p><strong>Traducción aplicada:</strong> {{ "Sí" if pdf.translated else "No" }}</p>
+        </div>
+
+        <h2>📘 Contenido procesado:</h2>
+        <div style="text-align: left; margin-top: 20px; background-color: #f9f9f9; padding: 20px; border-radius: 10px; max-height: 500px; overflow-y: auto;">
+            <pre style="white-space: pre-wrap;">{{ pdf.text }}</pre>
+        </div>
+
+        <br>
+        <a href="{{ url_for('history') }}" class="small-button">🔙 Volver al historial</a>
+        <a href="{{ url_for('download_pdf', pdf_id=pdf.id) }}" class="small-button">⬇️ Descargar TXT</a>
+    </div>
+</body>
+</html>

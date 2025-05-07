@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>TraducPDF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>TraducPDF</h1>
+        <p>Tu asistente inteligente para traducir documentos académicos 📚🌍</p>
+        <nav>
+            <a href="/">🏠 Inicio</a>
+            <a href="/upload">⬆️ Subir PDF</a>
+            <a href="/history">🕒 Historial</a>
+            <a href="/profile">👤 Perfil</a>
+            <a href="/logout">🚪 Cerrar sesión</a>
+            <a href="/about">ℹ️ Sobre esta app</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>¿Qué es TraducPDF?</h2>
+            <p>TraducPDF es una plataforma diseñada para estudiantes y profesionales que necesitan traducir documentos PDF manteniendo imágenes y formato.</p>
+            <p>Utiliza inteligencia artificial para traducir contenido técnico y ofrece compatibilidad con múltiples idiomas.</p>
+            <p>Actualmente, podés subir un PDF desde la pestaña <strong>“Subir PDF”</strong> y obtener una versión traducida y enriquecida.</p>
+        </section>
+
+        <section class="future-chat" style="margin-top: 50px; text-align: center;">
+            <h2>🧠 Próximamente</h2>
+            <p>Estamos trabajando en integrar un chat interactivo con IA para responder preguntas sobre tus textos traducidos y ayudarte con análisis más profundos.</p>
+            <div style="margin-top: 20px; padding: 20px; border: 2px dashed #ccc; border-radius: 10px;">
+                <em>💬 Aquí se integrará el módulo de conversación con IA</em>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container small-container">
+        <h1>🔐 Iniciar Sesión</h1>
+
+        <form action="/login" method="post">
+            <input class="input-field" type="text" name="username" placeholder="Nombre de usuario" required>
+            <input class="input-field" type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="button">Entrar</button>
+        </form>
+
+        <p>¿No tenés cuenta? <a href="/register">Registrate</a></p>
+    </div>
+</body>
+</html>

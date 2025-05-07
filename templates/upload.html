@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Subir PDF</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container small-container">
+        <h1>📄 Subir un Nuevo PDF</h1>
+
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input class="input-field" type="file" name="file" id="file" required><br><br>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="translate" name="translate">
+                <span class="checkmark"></span>
+                ¿Querés traducir el texto?
+            </label><br>
+
+            <!-- Nuevo: idioma de origen -->
+            <label for="source_lang" style="font-weight: bold;">Idioma original:</label><br>
+            <select class="input-field" id="source_lang" name="source_lang" disabled>
+                <option value="auto">Detectar automáticamente</option>
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+                <option value="fr">Francés</option>
+                <option value="de">Alemán</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Portugués</option>
+            </select><br>
+
+            <!-- Idioma destino ya existente -->
+            <label for="language" style="font-weight: bold;">Idioma destino:</label><br>
+            <select class="input-field" id="language" name="language" disabled>
+                <option value="">Seleccioná un idioma</option>
+                <option value="en">Inglés</option>
+                <option value="es">Español</option>
+                <option value="fr">Francés</option>
+                <option value="de">Alemán</option>
+                <option value="it">Italiano</option>
+                <option value="pt">Portugués</option>
+            </select><br><br>
+
+            <label for="career" style="font-weight: bold;">Seleccioná una carrera:</label><br><br>
+            <select class="input-field" id="career" name="career" required>
+                <option value="">Elegí una opción</option>
+                <option value="medicina">Medicina 🏥</option>
+                <option value="derecho">Derecho ⚖️</option>
+                <option value="ingenieria">Ingeniería 🔧</option>
+                <option value="otra">Otra ✍️</option>
+            </select><br><br>
+
+            <button type="submit" class="button">Procesar PDF</button>
+        </form>
+
+        <div id="resultado" style="margin-top: 20px;"></div>
+
+        <br>
+        <a href="/" class="small-button">🏠 Volver al Menú</a>
+    </div>
+
+    <script>
+        const translateCheckbox = document.getElementById('translate');
+        const languageSelect = document.getElementById('language');
+        const sourceLangSelect = document.getElementById('source_lang');
+
+        // Activar selects de idioma solo si se marca traducir
+        translateCheckbox.addEventListener('change', function () {
+            languageSelect.disabled = !this.checked;
+            sourceLangSelect.disabled = !this.checked;
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const fileInput = document.getElementById('file');
+            formData.append('file', fileInput.files[0]);
+            formData.append('translate', translateCheckbox.checked);
+            formData.append('language', languageSelect.value);
+            formData.append('source_lang', sourceLangSelect.value);
+            formData.append('career', document.getElementById('career').value);
+
+            const response = await fetch('/process-pdf', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                document.getElementById('resultado').innerHTML = `<p style="color:red;">Error: ${data.error}</p>`;
+            } else {
+                document.getElementById('resultado').innerHTML = `
+                    <h2>✅ PDF procesado correctamente</h2>
+                    <p><a class="button" href="${data.download_link}" target="_blank">📥 Descargar PDF Traducido</a></p>
+                    <h2>Respuesta de IA:</h2>
+                    <p>${data.respuesta_ia}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

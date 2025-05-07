@@ -1,0 +1,7 @@
+flask
+flask-cors
+flask-session
+openai
+pdfplumber
+python-dotenv
+requests
